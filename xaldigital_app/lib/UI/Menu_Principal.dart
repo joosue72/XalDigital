@@ -54,6 +54,8 @@ void initState() {
                 return ListView(
                   children: snapshot.data!.map((historial) {
                     return Center(
+
+                      //Inkwell nos sirve para poder capturar el gesto ontap ques es el que genera la accion
                       child: InkWell(
                           onTap: () {
                             showGeneralDialog(
@@ -106,11 +108,12 @@ void initState() {
                                               ),
                                             ),
                                           ),
-                                          child: Container(
+                                          child: SizedBox(
                     height: MediaQuery.of(context).size.height ,
                     child: ListView.builder(
                       itemCount: snapshot.data!.country.length,
                       itemBuilder: (context, index) {
+                        //Manda llamar el wiget Cardinfo y le da como parametros dos strings
                         return CardInfo(
                           country: snapshot.data!.country[index]["country_id"],
                           probabilty: snapshot
@@ -127,7 +130,8 @@ void initState() {
 
                                     return const Center(
                                         child:
-                                            const CircularProgressIndicator());
+                                
+                                             CircularProgressIndicator());
                                   },
                                 );
                               },
